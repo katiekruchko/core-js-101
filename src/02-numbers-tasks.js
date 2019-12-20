@@ -115,8 +115,8 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (1,2)     => 0
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
-  const angleRadians = Math.atan2(y2 - y1, x2 - x1);
-  return angleRadians;
+  const angleRadians = Math.atan(y2 - y1, x2 - x1);
+  return angleRadians * 2;
 }
 
 /**
@@ -234,12 +234,11 @@ function isPrime(n) {
  */
 function toNumber(value, def) {
   const num = value;
-  const getNum;
-  getNum = 0 + Number(num);
-  if (isNaN(getNum)) {
-    return getNum;
+  const getNum = Number(num);
+  if (Number.isNaN(getNum)) {
+    return def;
   }
-  return def;
+  return getNum;
 }
 
 module.exports = {
